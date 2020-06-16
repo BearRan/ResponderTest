@@ -1,0 +1,6 @@
+framework module Pods_ResponderTest_ResponderTestUITests {
+  umbrella header "Pods-ResponderTest-ResponderTestUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

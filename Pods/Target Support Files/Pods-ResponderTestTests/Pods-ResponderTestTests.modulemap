@@ -1,0 +1,6 @@
+framework module Pods_ResponderTestTests {
+  umbrella header "Pods-ResponderTestTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
