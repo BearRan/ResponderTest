@@ -19,6 +19,7 @@
 		74AB3CCE24990E530057A6DD /* ResponderTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AB3CCD24990E530057A6DD /* ResponderTestUITests.swift */; };
 		74AB3CDC249910D00057A6DD /* TestGestureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AB3CDB249910D00057A6DD /* TestGestureVC.swift */; };
 		74AB3CDE249912620057A6DD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AB3CDD249912620057A6DD /* BaseViewController.swift */; };
+		74AB3CE0249913910057A6DD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AB3CDF249913910057A6DD /* BaseView.swift */; };
 		E7C9217D7405D5DB02E51FB4 /* Pods_ResponderTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE7AAE493D4D1E7CFA4AA0E /* Pods_ResponderTestTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		74AB3CCF24990E530057A6DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74AB3CDB249910D00057A6DD /* TestGestureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureVC.swift; sourceTree = "<group>"; };
 		74AB3CDD249912620057A6DD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		74AB3CDF249913910057A6DD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		EAEBF502C1A119EFEDE6EB57 /* Pods-ResponderTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResponderTest.release.xcconfig"; path = "Target Support Files/Pods-ResponderTest/Pods-ResponderTest.release.xcconfig"; sourceTree = "<group>"; };
 		FCE7AAE493D4D1E7CFA4AA0E /* Pods_ResponderTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResponderTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 				74AB3CAF24990E510057A6DD /* ViewController.swift */,
 				74AB3CDB249910D00057A6DD /* TestGestureVC.swift */,
 				74AB3CDD249912620057A6DD /* BaseViewController.swift */,
+				74AB3CDF249913910057A6DD /* BaseView.swift */,
 				74AB3CB124990E510057A6DD /* Main.storyboard */,
 				74AB3CB424990E530057A6DD /* Assets.xcassets */,
 				74AB3CB624990E530057A6DD /* LaunchScreen.storyboard */,
@@ -416,6 +419,7 @@
 				74AB3CDE249912620057A6DD /* BaseViewController.swift in Sources */,
 				74AB3CB024990E510057A6DD /* ViewController.swift in Sources */,
 				74AB3CAC24990E510057A6DD /* AppDelegate.swift in Sources */,
+				74AB3CE0249913910057A6DD /* BaseView.swift in Sources */,
 				74AB3CDC249910D00057A6DD /* TestGestureVC.swift in Sources */,
 				74AB3CAE24990E510057A6DD /* SceneDelegate.swift in Sources */,
 			);

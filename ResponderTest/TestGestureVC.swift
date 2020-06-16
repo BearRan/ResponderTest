@@ -10,21 +10,29 @@ import UIKit
 
 class TestGestureVC: BaseViewController {
 
+    let viewA = BaseView(name: "viewA")
+    let viewB = BaseView(name: "viewB")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        createUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Create UI
+    fileprivate func createUI() {
+        self.view.addSubview(viewA)
+        viewA.backgroundColor = .orange
+        viewA.snp.makeConstraints { (make) in
+            make.width.height.equalTo(200)
+            make.centerX.centerY.equalToSuperview()
+        }
+        
+        self.viewA.addSubview(self.viewB)
+        viewB.backgroundColor = .blue
+        viewB.snp.makeConstraints { (make) in
+            make.width.height.equalTo(100)
+            make.centerX.centerY.equalToSuperview()
+        }
     }
-    */
-
 }
