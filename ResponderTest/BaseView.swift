@@ -13,6 +13,7 @@ class BaseView: UIView {
     let name :String
     var showTouchLog = true
     var showHitTestLog = true
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -20,6 +21,37 @@ class BaseView: UIView {
         // Drawing code
     }
     */
+    
+
+    func convertGesState(state: UIGestureRecognizer.State) -> String {
+        var resString = ""
+        switch state {
+        
+        case .possible:
+            resString = "possible"
+        case .began:
+            resString = "began"
+        case .changed:
+            resString = "changed"
+        case .ended:
+            resString = "ended"
+        case .cancelled:
+            resString = "cancelled"
+        case .failed:
+            resString = "failed"
+        @unknown default:
+            resString = "unknown"
+        }
+        return resString
+    }
+    
+    func showGestureLog(state: UIGestureRecognizer.State, gesture: UIGestureRecognizer) {
+        print("--------view:\(self.name) gesture:\(String(describing: type(of: gesture))) status:\(self.convertGesState(state: state))")
+    }
+    
+    @objc public func gestureEvent() {
+        print("--\(self.name) tap gestureEvent")
+    }
     
     init(name: String) {
         self.name = name
