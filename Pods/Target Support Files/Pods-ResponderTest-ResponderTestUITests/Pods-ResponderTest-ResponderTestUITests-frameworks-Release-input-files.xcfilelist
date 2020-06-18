@@ -1,2 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-ResponderTest-ResponderTestUITests/Pods-ResponderTest-ResponderTestUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

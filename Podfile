@@ -8,6 +8,10 @@ target 'ResponderTest' do
   # Pods for ResponderTest
 
   pod 'SnapKit'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxRelay'
+  pod 'NSObject+Rx'
 
   target 'ResponderTestTests' do
     inherit! :search_paths
