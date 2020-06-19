@@ -14,6 +14,8 @@ class BaseView: UIView {
     var showTouchLog = true
     var showHitTestLog = true
     
+    var gestureShouldBegin = true
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -39,6 +41,8 @@ class BaseView: UIView {
             resString = "cancelled"
         case .failed:
             resString = "failed"
+        case .recognized:
+            resString = "recognized"
         @unknown default:
             resString = "unknown"
         }
@@ -108,5 +112,11 @@ class BaseView: UIView {
             print("--touchesCancelled name:\(self.name)")
         }
         super.touchesCancelled(touches, with: event)
+    }
+}
+
+extension BaseView: UIGestureRecognizerDelegate {
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return self.gestureShouldBegin
     }
 }
