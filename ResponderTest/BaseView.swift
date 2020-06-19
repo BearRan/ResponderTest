@@ -15,48 +15,7 @@ class BaseView: UIView {
     var showHitTestLog = true
     
     var gestureShouldBegin = true
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
 
-    func convertGesState(state: UIGestureRecognizer.State) -> String {
-        var resString = ""
-        switch state {
-        
-        case .possible:
-            resString = "possible"
-        case .began:
-            resString = "began"
-        case .changed:
-            resString = "changed"
-        case .ended:
-            resString = "ended"
-        case .cancelled:
-            resString = "cancelled"
-        case .failed:
-            resString = "failed"
-        case .recognized:
-            resString = "recognized"
-        @unknown default:
-            resString = "unknown"
-        }
-        return resString
-    }
-    
-    func showGestureLog(state: UIGestureRecognizer.State, gesture: UIGestureRecognizer) {
-        print("--------view:\(self.name) gesture:\(String(describing: type(of: gesture))) status:\(self.convertGesState(state: state))")
-    }
-    
-    @objc public func gestureEvent() {
-        print("--\(self.name) tap gestureEvent")
-    }
-    
     init(name: String) {
         self.name = name
         super.init(frame: .zero)
@@ -81,7 +40,7 @@ class BaseView: UIView {
     }
     
     
-    
+    // MARK: - Touch message
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if showTouchLog {
@@ -115,8 +74,38 @@ class BaseView: UIView {
     }
 }
 
+// MARK: - UIGestureRecognizerDelegate
 extension BaseView: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return self.gestureShouldBegin
+    }
+}
+
+// MARK: - RX Linstener Gesture Log
+extension BaseView {
+    func convertGesState(state: UIGestureRecognizer.State) -> String {
+        var resString = ""
+        switch state {
+        
+        case .possible:
+            resString = "possible"
+        case .began:
+            resString = "began"
+        case .changed:
+            resString = "changed"
+        case .ended:
+            resString = "ended"
+        case .cancelled:
+            resString = "cancelled"
+        case .failed:
+            resString = "failed"
+        @unknown default:
+            resString = "unknown"
+        }
+        return resString
+    }
+    
+    func showGestureLog(state: UIGestureRecognizer.State, gestureName: String, gesture: UIGestureRecognizer) {
+        print("--------view:\(self.name) gesture:\(gestureName) \(String(describing: type(of: gesture))) status:\(self.convertGesState(state: state))")
     }
 }

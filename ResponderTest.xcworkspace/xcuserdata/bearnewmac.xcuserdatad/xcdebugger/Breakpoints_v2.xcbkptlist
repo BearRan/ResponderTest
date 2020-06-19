@@ -8,14 +8,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A48065F4-A65E-48BA-A261-89D4E10A6AF1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ResponderTest/BaseView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "gestureRecognizerShouldBegin(_:)"
             landmarkType = "7">
          </BreakpointContent>

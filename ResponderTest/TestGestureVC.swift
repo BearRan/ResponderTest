@@ -36,25 +36,32 @@ class TestGestureVC: BaseViewController {
         let view = BaseView(name: "viewB")
         view.showHitTestLog = false
         view.showTouchLog = true
-        view.gestureShouldBegin = false
+//        view.gestureShouldBegin = false
         
         let tapGRB = UITapGestureRecognizer(target: self, action: #selector(tapEventB))
-        view.addGestureRecognizer(tapGRB)
+        
         tapGRB.delegate = view
         tapGRB.rx.observe(UIGestureRecognizer.State.self, "state").bind { (state) in
             if let state = state {
-                view.showGestureLog(state: state, gesture: tapGRB)
+                view.showGestureLog(state: state, gestureName: "tapGRB", gesture: tapGRB)
             }
         }.disposed(by: self.rx.disposeBag)
         
-//        let tapGRB = UITapGestureRecognizer(target: self, action: #selector(tapEventB))
-//        view.addGestureRecognizer(tapGRB)
-//        tapGRB.delegate = view
-//        tapGRB.rx.observe(UIGestureRecognizer.State.self, "state").bind { (state) in
-//            if let state = state {
-//                view.showGestureLog(state: state, gesture: tapGRB)
-//            }
-//        }.disposed(by: self.rx.disposeBag)
+        let tapGRB_1 = UITapGestureRecognizer(target: self, action: #selector(tapEventB_1))
+//        tapGRB_1.minimumPressDuration = 1
+        
+//        tapGRB_1.delegate = view
+        tapGRB_1.rx.observe(UIGestureRecognizer.State.self, "state").bind { (state) in
+            if let state = state {
+                view.showGestureLog(state: state, gestureName: "tapGRB_1", gesture: tapGRB_1)
+            }
+        }.disposed(by: self.rx.disposeBag)
+        
+        
+        
+        view.addGestureRecognizer(tapGRB)
+        view.addGestureRecognizer(tapGRB_1)
+        
         
 //        tapGRB.cancelsTouchesInView = false
 //        tapGRB.delaysTouchesBegan = true
@@ -149,5 +156,9 @@ class TestGestureVC: BaseViewController {
     
     @objc func tapEventB() {
         print("--tapEventB")
+    }
+    
+    @objc func tapEventB_1() {
+        print("--tapEventB_1")
     }
 }
