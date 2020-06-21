@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestContentView: UIView {
+class BaseContentView: UIView {
 
     let titleLabel = UILabel()
     var name :String = "" {
