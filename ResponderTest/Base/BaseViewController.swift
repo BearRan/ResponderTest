@@ -22,6 +22,11 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let tmpClass = object_getClass(self) {
+            let tmpName = NSStringFromClass(tmpClass)
+            self.title = String(tmpName.split(separator: ".")[1])
+        }
+        
         self.view.backgroundColor = .white
         
         self.view.addSubview(stackView)

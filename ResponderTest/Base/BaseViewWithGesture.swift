@@ -11,6 +11,7 @@ import UIKit
 class BaseViewWithGesture: BaseView {
 
     lazy var tapGR = UITapGestureRecognizer(target: self, action: #selector(tapEvent))
+    lazy var longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(longPressEvent))
     
     override init(name: String) {
         super.init(name: name)
@@ -26,6 +27,16 @@ class BaseViewWithGesture: BaseView {
                 self.showGestureLog(state: state, gestureName: "\(self.name).tapGesture", gesture: self.tapGR)
             }
         }.disposed(by: self.rx.disposeBag)
+        
+        self.addGestureRecognizer(longPressGR)
+        longPressGR.isEnabled = false
+        longPressGR.delegate = self
+        longPressGR.rx.observe(UIGestureRecognizer.State.self, "state").bind {[weak self] (state) in
+            guard let self = self else { return }
+            if let state = state {
+                self.showGestureLog(state: state, gestureName: "\(self.name).longPressGesture", gesture: self.longPressGR)
+            }
+        }.disposed(by: self.rx.disposeBag)
     }
     
     required init?(coder: NSCoder) {
@@ -34,6 +45,10 @@ class BaseViewWithGesture: BaseView {
     
     @objc func tapEvent() {
         print("--\(self.name) tapEvent")
+    }
+    
+    @objc func longPressEvent() {
+        print("--\(self.name) longPressEvent")
     }
 
 }
