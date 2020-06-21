@@ -12,11 +12,24 @@ class BaseViewController: UIViewController {
 
     let name :String = "BaseVC"
     var showTouchLog = true
+    lazy var stackView :UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        return stackView
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
+        
+        self.view.addSubview(stackView)
+        stackView.snp.makeConstraints { (make) in
+            make.left.top.right.equalToSuperview()
+        }
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.edgesForExtendedLayout = [.bottom]
     }
     
 

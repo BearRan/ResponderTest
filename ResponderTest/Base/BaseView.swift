@@ -10,15 +10,29 @@ import UIKit
 
 class BaseView: UIView {
 
-    let name :String
+    let titleLabel = UILabel()
+    var name :String = "" {
+        didSet {
+            self.titleLabel.text = name
+        }
+    }
+    
     var showTouchLog = true
     var showHitTestLog = true
     
     var gestureShouldBegin = true
+    var shouldRecognizeSimultaneously = false
+    var shouldRequireFailureOf = false
 
     init(name: String) {
         self.name = name
         super.init(frame: .zero)
+        
+        self.titleLabel.text = name
+        self.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { (make) in
+            make.left.top.equalToSuperview().offset(5)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -78,6 +92,14 @@ class BaseView: UIView {
 extension BaseView: UIGestureRecognizerDelegate {
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return self.gestureShouldBegin
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return self.shouldRecognizeSimultaneously
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return self.shouldRequireFailureOf
     }
 }
 

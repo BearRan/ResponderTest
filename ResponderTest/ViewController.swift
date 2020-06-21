@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     lazy var vcNames = [
         "TestGestureVC",
+        "TestCancelsTouchesInView",
     ]
     
     override func viewDidLoad() {
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
     }
 }
 

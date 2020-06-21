@@ -16,29 +16,32 @@ class TestGestureVC: BaseViewController {
 
     lazy var viewA :BaseView = {
         let view = BaseView(name: "viewA")
-        view.showHitTestLog = false
+        view.showHitTestLog = true
         view.showTouchLog = true
 //        view.gestureShouldBegin = false
         
         
-//        let tapGRA = UITapGestureRecognizer(target: self, action: #selector(tapEventA))
-//        view.addGestureRecognizer(tapGRA)
-//        tapGRA.rx.observe(UIGestureRecognizer.State.self, "state").bind { (state) in
-//            if let state = state {
-//                view.showGestureLog(state: state, gesture: tapGRA)
-//            }
-//        }.disposed(by: self.rx.disposeBag)
+        let tapGRA = UITapGestureRecognizer(target: self, action: #selector(tapEventA))
+//        tapGRA.minimumPressDuration = 2
+        view.addGestureRecognizer(tapGRA)
+        tapGRA.rx.observe(UIGestureRecognizer.State.self, "state").bind { (state) in
+            if let state = state {
+                view.showGestureLog(state: state, gestureName: "tapGRA", gesture: tapGRA)
+            }
+        }.disposed(by: self.rx.disposeBag)
         
         return view
     }()
     
     lazy var viewB :BaseView = {
         let view = BaseView(name: "viewB")
-        view.showHitTestLog = false
+        view.showHitTestLog = true
         view.showTouchLog = true
 //        view.gestureShouldBegin = false
+//        view.shouldRecognizeSimultaneously = true
+//        view.shouldRequireFailureOf = true
         
-        let tapGRB = UITapGestureRecognizer(target: self, action: #selector(tapEventB))
+        let tapGRB = UILongPressGestureRecognizer(target: self, action: #selector(tapEventB))
         
         tapGRB.delegate = view
         tapGRB.rx.observe(UIGestureRecognizer.State.self, "state").bind { (state) in
@@ -47,20 +50,18 @@ class TestGestureVC: BaseViewController {
             }
         }.disposed(by: self.rx.disposeBag)
         
-        let tapGRB_1 = UITapGestureRecognizer(target: self, action: #selector(tapEventB_1))
-//        tapGRB_1.minimumPressDuration = 1
-        
-//        tapGRB_1.delegate = view
-        tapGRB_1.rx.observe(UIGestureRecognizer.State.self, "state").bind { (state) in
-            if let state = state {
-                view.showGestureLog(state: state, gestureName: "tapGRB_1", gesture: tapGRB_1)
-            }
-        }.disposed(by: self.rx.disposeBag)
+//        let tapGRB_1 = UITapGestureRecognizer(target: self, action: #selector(tapEventB_1))
+////        tapGRB_1.delegate = view
+//        tapGRB_1.rx.observe(UIGestureRecognizer.State.self, "state").bind { (state) in
+//            if let state = state {
+//                view.showGestureLog(state: state, gestureName: "tapGRB_1", gesture: tapGRB_1)
+//            }
+//        }.disposed(by: self.rx.disposeBag)
         
         
         
         view.addGestureRecognizer(tapGRB)
-        view.addGestureRecognizer(tapGRB_1)
+//        view.addGestureRecognizer(tapGRB_1)
         
         
 //        tapGRB.cancelsTouchesInView = false
