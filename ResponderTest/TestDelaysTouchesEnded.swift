@@ -1,5 +1,5 @@
 //
-//  TestCancelsTouchesInView.swift
+//  TestDelaysTouchesEnded.swift
 //  ResponderTest
 //
 //  Created by Chobits on 2020/6/21.
@@ -8,37 +8,15 @@
 
 import UIKit
 
-class TestCancelsTouchesInView: BaseViewController {
+class TestDelaysTouchesEnded: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.showTouchLog = true
         
-        test0()
         testA()
         testB()
-    }
-    
-    func test0() {
-        let testViewWithGR :BaseView = {
-            let view = BaseView(name: "test0")
-//            view.showHitTestLog = true
-            view.showTouchLog = true
-            view.backgroundColor = .orange
-            
-            return view
-        }()
-        
-        let contentTestView = BaseContentView()
-        self.stackView.addArrangedSubview(contentTestView)
-        contentTestView.name = "No gesture"
-        
-        contentTestView.addSubview(testViewWithGR)
-        testViewWithGR.snp.makeConstraints { (make) in
-            make.width.height.equalTo(100)
-            make.centerX.centerY.equalToSuperview()
-        }
     }
     
     func testA() {
@@ -46,14 +24,14 @@ class TestCancelsTouchesInView: BaseViewController {
             let view = BaseViewWithGesture(name: "testA")
 //            view.showHitTestLog = true
             view.showTouchLog = true
-            view.tapGR.cancelsTouchesInView = true
+            view.tapGR.delaysTouchesEnded = true
             
             return view
         }()
         
         let contentTestView = BaseContentView()
         self.stackView.addArrangedSubview(contentTestView)
-        contentTestView.name = "tapGR.cancelsTouchesInView = true (default)"
+        contentTestView.name = "tapGR.delaysTouchesEnded = true (default)"
         
         contentTestView.addSubview(testViewWithGR)
         testViewWithGR.snp.makeConstraints { (make) in
@@ -65,16 +43,16 @@ class TestCancelsTouchesInView: BaseViewController {
     func testB() {
         let testViewWithGR :BaseViewWithGesture = {
             let view = BaseViewWithGesture(name: "testB")
-            view.showHitTestLog = true
+//            view.showHitTestLog = true
             view.showTouchLog = true
-            view.tapGR.cancelsTouchesInView = false
+            view.tapGR.delaysTouchesEnded = false
             
             return view
         }()
         
         let contentTestView = BaseContentView()
         self.stackView.addArrangedSubview(contentTestView)
-        contentTestView.name = "tapGR.cancelsTouchesInView = false"
+        contentTestView.name = "tapGR.delaysTouchesEnded = false"
         
         contentTestView.addSubview(testViewWithGR)
         testViewWithGR.snp.makeConstraints { (make) in
@@ -82,4 +60,5 @@ class TestCancelsTouchesInView: BaseViewController {
             make.centerX.centerY.equalToSuperview()
         }
     }
+
 }

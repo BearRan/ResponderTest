@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     lazy var vcNames = [
         "TestGestureVC",
         "TestCancelsTouchesInView",
+        "TestDelaysTouchesBegan",
+        "TestDelaysTouchesEnded",
     ]
     
     override func viewDidLoad() {
