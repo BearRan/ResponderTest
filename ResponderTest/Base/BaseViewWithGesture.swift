@@ -23,7 +23,7 @@ class BaseViewWithGesture: BaseView {
         tapGR.rx.observe(UIGestureRecognizer.State.self, "state").bind {[weak self] (state) in
             guard let self = self else { return }
             if let state = state {
-                self.showGestureLog(state: state, gestureName: "\(self.name) tapGesture", gesture: self.tapGR)
+                self.showGestureLog(state: state, gestureName: "\(self.name).tapGesture", gesture: self.tapGR)
             }
         }.disposed(by: self.rx.disposeBag)
     }
