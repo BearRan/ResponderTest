@@ -26,6 +26,9 @@ class TestDelaysTouchesEnded: BaseViewController {
             view.showTouchLog = true
             view.tapGR.delaysTouchesEnded = true
             
+            view.longPressGR.isEnabled = true
+            view.longPressGR.delaysTouchesEnded = true
+            
             return view
         }()
         
@@ -46,6 +49,9 @@ class TestDelaysTouchesEnded: BaseViewController {
 //            view.showHitTestLog = true
             view.showTouchLog = true
             view.tapGR.delaysTouchesEnded = false
+            
+            view.longPressGR.isEnabled = true
+            view.longPressGR.delaysTouchesEnded = true
             
             return view
         }()
