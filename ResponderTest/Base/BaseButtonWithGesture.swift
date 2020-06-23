@@ -1,14 +1,14 @@
 //
-//  BaseViewWithGesture.swift
+//  BaseButtonWithGesture.swift
 //  ResponderTest
 //
-//  Created by Chobits on 2020/6/21.
+//  Created by Chobits on 2020/6/23.
 //  Copyright © 2020 Chobits. All rights reserved.
 //
 
 import UIKit
 
-class BaseViewWithGesture: BaseView {
+class BaseButtonWithGesture: BaseButton {
 
     lazy var tapGR = UITapGestureRecognizer(target: self, action: #selector(tapEvent))
     lazy var longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(longPressEvent))
@@ -30,7 +30,6 @@ class BaseViewWithGesture: BaseView {
         
         self.addGestureRecognizer(longPressGR)
         longPressGR.isEnabled = false
-        longPressGR.delegate = self
         longPressGR.rx.observe(UIGestureRecognizer.State.self, "state").bind {[weak self] (state) in
             guard let self = self else { return }
             if let state = state {

@@ -1,19 +1,19 @@
 //
-//  BaseView.swift
+//  BaseButton.swift
 //  ResponderTest
 //
-//  Created by Chobits on 2020/6/16.
+//  Created by Chobits on 2020/6/23.
 //  Copyright © 2020 Chobits. All rights reserved.
 //
 
 import UIKit
 
-class BaseView: UIView {
+class BaseButton: UIButton {
 
-    let titleLabel = UILabel()
+    let myTitleLabel = UILabel()
     var name :String = "" {
         didSet {
-            self.titleLabel.text = name
+            self.myTitleLabel.text = name
         }
     }
     
@@ -28,11 +28,17 @@ class BaseView: UIView {
         self.name = name
         super.init(frame: .zero)
         
-        self.titleLabel.text = name
-        self.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
+        self.myTitleLabel.text = name
+        self.addSubview(myTitleLabel)
+        myTitleLabel.snp.makeConstraints { (make) in
             make.left.top.equalToSuperview().offset(5)
         }
+        
+        self.addTarget(self, action: #selector(btnEvent), for: .touchUpInside)
+    }
+    
+    @objc func btnEvent() {
+        print("--clickBtnEvent name:\(self.name)")
     }
     
     required init?(coder: NSCoder) {
@@ -88,23 +94,8 @@ class BaseView: UIView {
     }
 }
 
-// MARK: - UIGestureRecognizerDelegate
-extension BaseView: UIGestureRecognizerDelegate {
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return self.gestureShouldBegin
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return self.shouldRecognizeSimultaneously
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return self.shouldRequireFailureOf
-    }
-}
-
 // MARK: - RX Linstener Gesture Log
-extension BaseView {
+extension BaseButton {
     func convertGesState(state: UIGestureRecognizer.State) -> String {
         var resString = ""
         switch state {

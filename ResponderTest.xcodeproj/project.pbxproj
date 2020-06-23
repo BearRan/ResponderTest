@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0059DBE35066614535644403 /* Pods_ResponderTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEEBA1F5C0E36E0116430C4 /* Pods_ResponderTest.framework */; };
 		3DE748156D5D58F43A721FBE /* Pods_ResponderTest_ResponderTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC0BFC16A967481E2D74225 /* Pods_ResponderTest_ResponderTestUITests.framework */; };
+		74914FEA24A0F9B10082225B /* TestGestureAndButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74914FE924A0F9B10082225B /* TestGestureAndButton.swift */; };
+		74914FEE24A1C2570082225B /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74914FED24A1C2570082225B /* BaseButton.swift */; };
+		74914FF024A1C2A10082225B /* BaseButtonWithGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74914FEF24A1C2A10082225B /* BaseButtonWithGesture.swift */; };
 		74A080BD249F0590007B7F80 /* BaseContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A080BC249F0590007B7F80 /* BaseContentView.swift */; };
 		74A080BF249F0741007B7F80 /* TestCancelsTouchesInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A080BE249F0741007B7F80 /* TestCancelsTouchesInView.swift */; };
 		74A080C1249F0E7A007B7F80 /* BaseViewWithGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A080C0249F0E7A007B7F80 /* BaseViewWithGesture.swift */; };
@@ -53,6 +56,9 @@
 		56794AF2D37D0EBD5486668D /* Pods-ResponderTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResponderTestTests.debug.xcconfig"; path = "Target Support Files/Pods-ResponderTestTests/Pods-ResponderTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		584952D1288D648853AAAC49 /* Pods-ResponderTest-ResponderTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResponderTest-ResponderTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-ResponderTest-ResponderTestUITests/Pods-ResponderTest-ResponderTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FC0BFC16A967481E2D74225 /* Pods_ResponderTest_ResponderTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResponderTest_ResponderTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74914FE924A0F9B10082225B /* TestGestureAndButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGestureAndButton.swift; sourceTree = "<group>"; };
+		74914FED24A1C2570082225B /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		74914FEF24A1C2A10082225B /* BaseButtonWithGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonWithGesture.swift; sourceTree = "<group>"; };
 		74A080BC249F0590007B7F80 /* BaseContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContentView.swift; sourceTree = "<group>"; };
 		74A080BE249F0741007B7F80 /* TestCancelsTouchesInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCancelsTouchesInView.swift; sourceTree = "<group>"; };
 		74A080C0249F0E7A007B7F80 /* BaseViewWithGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewWithGesture.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 				74AB3CDD249912620057A6DD /* BaseViewController.swift */,
 				74AB3CDF249913910057A6DD /* BaseView.swift */,
 				74A080C0249F0E7A007B7F80 /* BaseViewWithGesture.swift */,
+				74914FED24A1C2570082225B /* BaseButton.swift */,
+				74914FEF24A1C2A10082225B /* BaseButtonWithGesture.swift */,
 				74A080BC249F0590007B7F80 /* BaseContentView.swift */,
 			);
 			path = Base;
@@ -163,6 +171,7 @@
 				74A080BE249F0741007B7F80 /* TestCancelsTouchesInView.swift */,
 				74DB414E249F278A0079AB60 /* TestDelaysTouchesBegan.swift */,
 				74DB4150249F2C830079AB60 /* TestDelaysTouchesEnded.swift */,
+				74914FE924A0F9B10082225B /* TestGestureAndButton.swift */,
 				74A080C2249F0E80007B7F80 /* Base */,
 				74AB3CB124990E510057A6DD /* Main.storyboard */,
 				74AB3CB424990E530057A6DD /* Assets.xcassets */,
@@ -439,6 +448,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74914FF024A1C2A10082225B /* BaseButtonWithGesture.swift in Sources */,
+				74914FEE24A1C2570082225B /* BaseButton.swift in Sources */,
 				74A080BF249F0741007B7F80 /* TestCancelsTouchesInView.swift in Sources */,
 				74AB3CDE249912620057A6DD /* BaseViewController.swift in Sources */,
 				74AB3CB024990E510057A6DD /* ViewController.swift in Sources */,
@@ -450,6 +461,7 @@
 				74AB3CAE24990E510057A6DD /* SceneDelegate.swift in Sources */,
 				74A080BD249F0590007B7F80 /* BaseContentView.swift in Sources */,
 				74DB4151249F2C830079AB60 /* TestDelaysTouchesEnded.swift in Sources */,
+				74914FEA24A0F9B10082225B /* TestGestureAndButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
