@@ -28,6 +28,7 @@
 		74AB3CE0249913910057A6DD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AB3CDF249913910057A6DD /* BaseView.swift */; };
 		74DB414F249F278A0079AB60 /* TestDelaysTouchesBegan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB414E249F278A0079AB60 /* TestDelaysTouchesBegan.swift */; };
 		74DB4151249F2C830079AB60 /* TestDelaysTouchesEnded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DB4150249F2C830079AB60 /* TestDelaysTouchesEnded.swift */; };
+		74F1E3E524A2411E00707C1B /* TestBoundsChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F1E3E424A2411E00707C1B /* TestBoundsChangeVC.swift */; };
 		E7C9217D7405D5DB02E51FB4 /* Pods_ResponderTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE7AAE493D4D1E7CFA4AA0E /* Pods_ResponderTestTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		74AB3CDF249913910057A6DD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		74DB414E249F278A0079AB60 /* TestDelaysTouchesBegan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDelaysTouchesBegan.swift; sourceTree = "<group>"; };
 		74DB4150249F2C830079AB60 /* TestDelaysTouchesEnded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDelaysTouchesEnded.swift; sourceTree = "<group>"; };
+		74F1E3E424A2411E00707C1B /* TestBoundsChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBoundsChangeVC.swift; sourceTree = "<group>"; };
 		EAEBF502C1A119EFEDE6EB57 /* Pods-ResponderTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResponderTest.release.xcconfig"; path = "Target Support Files/Pods-ResponderTest/Pods-ResponderTest.release.xcconfig"; sourceTree = "<group>"; };
 		FCE7AAE493D4D1E7CFA4AA0E /* Pods_ResponderTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResponderTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 				74DB414E249F278A0079AB60 /* TestDelaysTouchesBegan.swift */,
 				74DB4150249F2C830079AB60 /* TestDelaysTouchesEnded.swift */,
 				74914FE924A0F9B10082225B /* TestGestureAndButton.swift */,
+				74F1E3E424A2411E00707C1B /* TestBoundsChangeVC.swift */,
 				74A080C2249F0E80007B7F80 /* Base */,
 				74AB3CB124990E510057A6DD /* Main.storyboard */,
 				74AB3CB424990E530057A6DD /* Assets.xcassets */,
@@ -450,6 +453,7 @@
 			files = (
 				74914FF024A1C2A10082225B /* BaseButtonWithGesture.swift in Sources */,
 				74914FEE24A1C2570082225B /* BaseButton.swift in Sources */,
+				74F1E3E524A2411E00707C1B /* TestBoundsChangeVC.swift in Sources */,
 				74A080BF249F0741007B7F80 /* TestCancelsTouchesInView.swift in Sources */,
 				74AB3CDE249912620057A6DD /* BaseViewController.swift in Sources */,
 				74AB3CB024990E510057A6DD /* ViewController.swift in Sources */,

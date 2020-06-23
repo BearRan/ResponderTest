@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         "TestDelaysTouchesBegan",
         "TestDelaysTouchesEnded",
         "TestGestureAndButton",
+        "TestBoundsChangeVC",
     ]
     
     override func viewDidLoad() {

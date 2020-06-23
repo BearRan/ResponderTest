@@ -23,9 +23,11 @@ class BaseContentView: UIView {
         
         configDefaultSize()
         
+        titleLabel.numberOfLines = 0
         self.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.left.top.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
         }
     }
     
