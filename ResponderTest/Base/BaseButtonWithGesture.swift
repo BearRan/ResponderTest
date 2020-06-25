@@ -13,8 +13,8 @@ class BaseButtonWithGesture: BaseButton {
     lazy var tapGR = UITapGestureRecognizer(target: self, action: #selector(tapEvent))
     lazy var longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(longPressEvent))
     
-    override init(name: String) {
-        super.init(name: name)
+    override init(name: String, ifNeedDefaultEvent: Bool = true) {
+        super.init(name: name, ifNeedDefaultEvent: ifNeedDefaultEvent)
         
         self.backgroundColor = .orange
         self.showHitTestLog = false

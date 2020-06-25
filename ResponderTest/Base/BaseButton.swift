@@ -24,7 +24,7 @@ class BaseButton: UIButton {
     var shouldRecognizeSimultaneously = false
     var shouldRequireFailureOf = false
 
-    init(name: String) {
+    init(name: String, ifNeedDefaultEvent: Bool = true) {
         self.name = name
         super.init(frame: .zero)
         
@@ -34,7 +34,9 @@ class BaseButton: UIButton {
             make.left.top.equalToSuperview().offset(5)
         }
         
-        self.addTarget(self, action: #selector(btnEvent), for: .touchUpInside)
+        if ifNeedDefaultEvent {
+            self.addTarget(self, action: #selector(btnEvent), for: .touchUpInside)
+        }
     }
     
     @objc func btnEvent() {
