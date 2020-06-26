@@ -10,6 +10,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    lazy var tapGR = UITapGestureRecognizer(target: self, action: #selector(vcTapEvent))
     let name :String = "BaseVC"
     var showTouchLog = true
     lazy var stackView :UIStackView = {
@@ -22,6 +23,14 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.addGestureRecognizer(tapGR)
+        tapGR.rx.observe(UIGestureRecognizer.State.self, "state").bind {[weak self] (state) in
+            guard let self = self else { return }
+            if let state = state {
+                self.showGestureLog(state: state, gestureName: "\(self.name).tapGesture", gesture: self.tapGR)
+            }
+        }.disposed(by: self.rx.disposeBag)
+        
         if let tmpClass = object_getClass(self) {
             let tmpName = NSStringFromClass(tmpClass)
             self.title = String(tmpName.split(separator: ".")[1])
@@ -37,7 +46,12 @@ class BaseViewController: UIViewController {
         self.edgesForExtendedLayout = [.bottom]
     }
     
-
+    
+    
+    @objc func vcTapEvent() {
+        print("--vcTapEvent \(self.name)")
+    }
+    
     
         
         
@@ -73,4 +87,33 @@ class BaseViewController: UIViewController {
         super.touchesCancelled(touches, with: event)
     }
 
+}
+
+// MARK: - RX Linstener Gesture Log
+extension BaseViewController {
+    func convertGesState(state: UIGestureRecognizer.State) -> String {
+        var resString = ""
+        switch state {
+        
+        case .possible:
+            resString = "possible"
+        case .began:
+            resString = "began"
+        case .changed:
+            resString = "changed"
+        case .ended:
+            resString = "ended"
+        case .cancelled:
+            resString = "cancelled"
+        case .failed:
+            resString = "failed"
+        @unknown default:
+            resString = "unknown"
+        }
+        return resString
+    }
+    
+    func showGestureLog(state: UIGestureRecognizer.State, gestureName: String, gesture: UIGestureRecognizer) {
+        print("--GestureStatusListener view:\(self.name) gesture:\(gestureName) \(String(describing: type(of: gesture))) status:\(self.convertGesState(state: state))")
+    }
 }
